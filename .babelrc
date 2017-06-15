@@ -1,0 +1,42 @@
+{
+  "presets": [
+    "react",
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+  ],
+  "env": {
+    "client": {
+      "presets": [
+        ["env", {
+            "targets": {
+              "chrome": 54
+            },
+            "loose": true,
+            "modules": false,
+            "include": [],
+        }],
+      ],
+      "plugins": [
+        ["transform-builtin-extend", { "globals": ["Error"] }],
+        ["styled-components", {
+          "preprocess": true
+        }],
+    	]
+    },
+    "server": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": "current"
+          }
+        }],
+      ],
+      "plugins": [
+        "transform-runtime",
+        ["transform-builtin-extend", { "globals": ["Error"] }],
+        "istanbul",
+      ]
+    }
+  }
+}
